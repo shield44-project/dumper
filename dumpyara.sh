@@ -164,10 +164,10 @@ if [[ -n $GIT_OAUTH_TOKEN ]]; then
     curl --silent --fail "https://raw.githubusercontent.com/$ORG/$repo/$branch/all_files.txt" 2> /dev/null && echo "Firmware already dumped!" && exit 1
     git init
     if [[ -z "$(git config --get user.email)" ]]; then
-        git config user.email AndroidDumps@github.com
+        git config user.email manofuranium@gmail.com
     fi
     if [[ -z "$(git config --get user.name)" ]]; then
-        git config user.name AndroidDumps
+        git config user.name ElytrA8
     fi
     git checkout -b "$branch"
     find . -size +97M -printf '%P\n' -o -name "*sensetime*" -printf '%P\n' -o -name "*.lic" -printf '%P\n' >| .gitignore
