@@ -181,18 +181,18 @@ if [[ -n $GIT_OAUTH_TOKEN ]]; then
         (
             git update-ref -d HEAD
             git reset system/ vendor/
-            git checkout -b "$branch"
+            git checkout -b main
             git commit -asm "Add extras for ${description}"
-            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git "$branch"
+            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git main
             git add vendor/
             git commit -asm "Add vendor for ${description}"
-            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git "$branch"
+            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git main
             git add system/system/app/ system/system/priv-app/ || git add system/app/ system/priv-app/
             git commit -asm "Add apps for ${description}"
-            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git "$branch"
+            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git main
             git add system/
             git commit -asm "Add system for ${description}"
-            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git "$branch"
+            git push https://"$GIT_OAUTH_TOKEN"@github.com/$ORG/"${repo,,}".git main
         )
 else
     echo "Dump done locally."
